@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Countdown Timer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="top-bg">
+        <h2>COMING SOON!</h2>
+        <p>Stay tuned, we're launching soon</p>
+
+        <div class="boxes">
+            <div class="days">
+                <p id="days"></p>
+            </div>
+            <span>days</span>
+            <div class="hours">
+                <p id="hours"></p>
+            </div>
+            <div class="mins">
+                <p id="mins"></p>
+            </div>
+            <div class="sec">
+                <p id="sec"></p>
+            </div>
+        </div>
+
+        <p class="notify">Subscribe to get notified when we finally launch</p>
+        
+        <input class="email" type="email" placeholder="Email address"><input type="button" class="subscribe" value="SUBSCRIBE">
+    </div>
+
+
+    <script>
+        var countdownDate= new Date ("December 25, 2022 00:00:00").getTime();
+
+        var myfunc = setInterval(function () {
+            var now = new Date().getTime()
+
+            var distance = countdownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24))
+
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+
+            var mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+
+            var seconds = Math.floor((distance % (1000 * 60)) / (1000))
+
+            document.getElementById("days").innerHTML = days
+            document.getElementById("hours").innerHTML = hours
+            document.getElementById("mins").innerHTML = mins
+            document.getElementById("sec").innerHTML = seconds
+        }, 1000)
+    </script>
+</body>
+</html>
